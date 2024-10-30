@@ -646,9 +646,6 @@ video {
 .h-8 {
   height: 2rem;
 }
-.h-\[250px\] {
-  height: 250px;
-}
 .h-full {
   height: 100%;
 }
