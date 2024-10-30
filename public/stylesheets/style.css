@@ -575,9 +575,6 @@ video {
 .order-2 {
   order: 2;
 }
-.m-0 {
-  margin: 0px;
-}
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -651,9 +648,6 @@ video {
 }
 .h-\[250px\] {
   height: 250px;
-}
-.h-auto {
-  height: auto;
 }
 .h-full {
   height: 100%;

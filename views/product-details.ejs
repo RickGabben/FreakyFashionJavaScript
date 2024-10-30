@@ -4,14 +4,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product Details</title>
+    <title><%=title %></title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body class="bg-gray-800">
     <header class="flex flex-wrap sm:flex-nowrap items-center">
       <img
         class="w-full lg:max-w-[400px]"
-        src="./Images/FreakyNy.png"
+        src="/Images/FreakyNy.png"
         alt="FreakyFashion Logo"
       />
       <form class="relative w-10/12">
@@ -91,7 +91,7 @@
           <div class="sm:mt-0 sm:border-0 sm:w-fit">
             <img
               class="rounded-sm mx-auto w-full h-full object-cover"
-              src="<%= product.ImageUrl %>"
+              src="<%= product.image %>"
               alt="T-shirt"
             />
             <button
@@ -114,12 +114,10 @@
         </div>
 
         <!-- Text Section -->
-        <div class="w-fit text-white sm:w-1/2">
-          <h2 class="text-3xl font-medium underline">
-            <%= product.color %> T-Shirt
-          </h2>
+        <div class="w-fit text-white sm:w-1/2 pl-4">
+          <h2 class="text-3xl font-medium underline"><%= product.name %></h2>
           <!-- Product title -->
-          <h3 class="text-2xl underline">Levis</h3>
+          <h3 class="text-2xl underline"><%= product.brand %></h3>
           <!-- Brand name -->
           <p class="text-lg">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
@@ -127,7 +125,7 @@
             sit hic omnis nemo deleniti magni voluptates, rem et fugit, debitis
             excepturi amet adipisci.
           </p>
-          <p class="text-2xl mt-2 underline">199 SEK</p>
+          <p class="text-2xl mt-2 underline"><%= product.price %></p>
           <!-- Description -->
           <div class="mt-5">
             <button
@@ -146,15 +144,17 @@
       >
         <% randomProducts.forEach(product => { %>
         <div class="relative">
-          <a href="#">
+          <a href="<%= product.color %>">
             <div
               class="border-4 mt-2 justify-center mx-auto overflow-hidden relative"
             >
               <img
                 class="justify-center mx-auto rounded-sm transform transition-transform duration-300 ease-in-out hover:scale-105 bg-white"
-                src="<%= product.ImageUrl %>"
+                src="<%= product.image %>"
                 alt="<%= product.name %>"
+                width="300"
               />
+
               <div
                 class="border-t-2 grid grid-cols-2 bg-gray-500 text-black pt-2"
               >
@@ -165,7 +165,7 @@
             </div>
           </a>
         </div>
-        <% }); %>
+        <% }) %>
       </div>
       <div class="flex justify-center border-y-4 pb-4 bg-gray-800">
         <div class="container text-gray-400 pt-4 pl-4">

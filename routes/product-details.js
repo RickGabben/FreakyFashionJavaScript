@@ -1,41 +1,34 @@
-// routes/product-details.js
-
 const express = require("express");
 const router = express.Router();
-const { getRandomProduct } = require("./product-details");
-// Route to handle dynamic product details by color
-router.get("/:color", (req, res) => {
+const products = require("./data"); // Adjust path if necessary
+
+// Function to get random products, including duplicates
+const getRandomProducts = (count) => {
+  const randomProducts = [];
+  for (let i = 0; i < count; i++) {
+    const randomProduct = products[Math.floor(Math.random() * products.length)];
+    randomProducts.push(randomProduct);
+  }
+  return randomProducts;
+};
+
+// GET product details route
+router.get("/:color", function (req, res) {
   const { color } = req.params;
 
-  // Here, use the color parameter to fetch specific product details from the database
-  // For example, using sample data based on color
-  const products = {
-    "black-tshirt": {
-      name: "Black T-Shirt",
-      price: "199kr",
-      brand: "Levis",
-      color: "Rlack",
-      ImageUrl: "/images/black-Tshirt.png",
-    },
-    "red-tshirt": {
-      name: "Red T-Shirt",
-      price: "300kr",
-      brand: "Levis",
-      color: "Red",
-      ImageUrl: "/images/red-Tshirt.png",
-    },
-  };
+  // Find the corresponding product based on color
+  const productDetails = products.find(
+    (p) => p.color.toLowerCase() === color.toLowerCase()
+  );
 
-  function getRandomProduct() {
-    const keys = Object.keys(products);
-    const randomKey = keys[Math.floor(Math.random() * keys.length)];
-    return products[randomKey];
-  }
+  if (productDetails) {
+    const randomProducts = getRandomProducts(3); // Get 3 random products (including duplicates)
 
-  const product = products[`${color}-tshirt`];
-  const randomProducts = Array.from({ length: 3 }, getRandomProduct);
-  if (product) {
-    res.render("product-details", { product, randomProducts });
+    res.render("product-details", {
+      title: productDetails.name,
+      product: productDetails,
+      randomProducts, // Pass random products to the view
+    });
   } else {
     res.status(404).send("Product not found");
   }
