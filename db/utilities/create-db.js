@@ -9,13 +9,14 @@ const db = new sqlite3.Database(
 );
 
 let sql = `
-  CREATE TABLE products (
+  ALTER TABLE products (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT,
     brand TEXT,
     price TEXT,
     color TEXT,
     image TEXT
+    description TEXT
   );
 `;
 
