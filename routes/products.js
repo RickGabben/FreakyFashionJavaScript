@@ -39,7 +39,7 @@ router.get("/:name", function (req, res) {
       if (productDetails) {
         // Fetch random products, excluding the current product
         getRandomProducts(3, name, (randomProducts) => {
-          res.render("product-details", {
+          res.render("products", {
             title: productDetails.name,
             product: productDetails,
             randomProducts, // Pass random products to the view

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Add products to FreakyFashion" />
+    <title>Administration</title>
+
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 text-gray-800 flex flex-col min-h-screen">
+    <!-- Header Section -->
+    <header class="bg-gray-800 py-3 pl-3 text-3xl text-white shadow-md">
+      <h1>Administration</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex flex-grow">
+      <!-- Sidebar -->
+      <nav
+        class="border-r-4 w-3/12 min-h-screen bg-gray-700 text-white flex justify-center py-4"
+      >
+        <ul
+          class="list-none text-xl hover:text-gray-300 transition duration-200"
+        >
+          <li>
+            <a href="">
+              <h2>Produkter</h2>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main Area -->
+      <section class="flex flex-col flex-grow p-10">
+        <div class="flex justify-start">
+          <h2 class="text-2xl font-bold">Produkter</h2>
+        </div>
+
+        <div class="mt-5">
+          <div
+            class="w-full sm:w-2/3 md:max-w-lg p-8 bg-white rounded-lg shadow-md"
+          >
+            <form action="#" method="POST" class="space-y-4">
+              <!-- Input Field 1 -->
+              <div>
+                <label
+                  for="namn"
+                  class="block text-lg font-medium text-gray-700"
+                  >Namn</label
+                >
+                <input
+                  type="text"
+                  id="namn"
+                  name="namn"
+                  class="mt-1 w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg"
+                  required
+                />
+              </div>
+
+              <!-- Input Field 2 (Textarea for multiple rows) -->
+              <div>
+                <label
+                  for="beskrvning"
+                  class="block text-lg font-medium text-gray-700"
+                  >Beskrivning</label
+                >
+                <textarea
+                  id="beskrvning"
+                  name="beskrvning"
+                  rows="4"
+                  class="mt-1 w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg"
+                  required
+                ></textarea>
+              </div>
+
+              <!-- Input Field 3 (File Upload) -->
+              <div>
+                <label
+                  for="bild"
+                  class="block text-lg font-medium text-gray-700"
+                  >Bild</label
+                >
+                <input
+                  type="file"
+                  id="bild"
+                  name="bild"
+                  class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg"
+                />
+              </div>
+
+              <!-- Input Field 4 -->
+              <div>
+                <label for="SKU" class="block text-lg font-medium text-gray-700"
+                  >SKU</label
+                >
+                <input
+                  type="text"
+                  id="SKU"
+                  name="SKU"
+                  class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg"
+                  required
+                />
+              </div>
+
+              <!-- Input Field 5 -->
+              <div>
+                <label
+                  for="pris"
+                  class="block text-lg font-medium text-gray-700"
+                  >Pris</label
+                >
+                <input
+                  type="number"
+                  id="pris"
+                  name="pris"
+                  class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg"
+                  required
+                />
+              </div>
+
+              <!-- Checkbox Options -->
+              <div>
+                <label class="block text-lg font-medium text-gray-700"
+                  >Kategorier:</label
+                >
+                <div class="mt-2 space-y-2">
+                  <div class="flex items-center">
+                    <input
+                      id="t-shirt"
+                      name="kategorier[]"
+                      value="t-shirt"
+                      type="checkbox"
+                      class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                    />
+                    <label
+                      for="t-shirt"
+                      class="ml-2 block text-lg text-gray-700"
+                      >T-Shirts</label
+                    >
+                  </div>
+                  <div class="flex items-center">
+                    <input
+                      id="sommar"
+                      name="kategorier[]"
+                      value="sommar"
+                      type="checkbox"
+                      class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                    />
+                    <label for="sommar" class="ml-2 block text-lg text-gray-700"
+                      >Sommar</label
+                    >
+                  </div>
+                  <div class="flex items-center">
+                    <input
+                      id="byxor"
+                      name="kategorier[]"
+                      value="byxor"
+                      type="checkbox"
+                      class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                    />
+                    <label for="byxor" class="ml-2 block text-lg text-gray-700"
+                      >Byxor</label
+                    >
+                  </div>
+                  <div class="flex items-center">
+                    <input
+                      id="skor"
+                      name="kategorier[]"
+                      value="skor"
+                      type="checkbox"
+                      class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                    />
+                    <label for="skor" class="ml-2 block text-lg text-gray-700"
+                      >Skor</label
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <div>
+                <button
+                  type="submit"
+                  aria-label="Submit the form"
+                  class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-lg"
+                >
+                  Lägg Till
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t-8 border-gray-800"></footer>
+  </body>
+</html>
