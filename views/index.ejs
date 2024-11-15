@@ -2,7 +2,7 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/styles/output.css" />
   </head>
   <body class="bg-gray-800">
     <header class="flex flex-wrap sm:flex-nowrap items-center">
@@ -164,10 +164,7 @@
       >
         <% products.forEach(product => { %>
         <div class="mx-auto relative">
-          <a
-            href="./products/<%= product.name.replace(/\s+/g, '-') %>"
-            class="mx-auto"
-          >
+          <a href="./products/<%= product.name %>" class="mx-auto">
             <div class="border-4 mt-2 mx-auto overflow-hidden">
               <div class="relative">
                 <img
@@ -277,7 +274,7 @@
                   />
                 </svg>
               </i>
-              <p class="pl-1 font-bold text-2xl lg:text-lg">
+              <p class="pl-1 border-8 font-bold text-2xl lg:text-lg">
                 Säkra betalningar
               </p>
             </div>

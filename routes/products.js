@@ -24,6 +24,7 @@ const getRandomProducts = (count, excludedName, callback) => {
 };
 
 // GET product details route
+// GET /products/:name
 router.get("/:name", function (req, res) {
   const { name } = req.params; // e.g., "Black-Tshirt"
 
