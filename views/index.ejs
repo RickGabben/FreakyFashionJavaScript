@@ -162,7 +162,7 @@
       <section
         class="mx-5 pb-4 grid grid-cols-1 sm:grid-cols-2 sm:px-3 lg:grid-cols-4 gap-4 text-white justify-center pt-5"
       >
-        <% products.forEach(product => { %>
+        <% products.slice(0, 8).forEach(product => { %>
         <div class="mx-auto relative">
           <a href="./products/<%= product.name %>" class="mx-auto">
             <div class="border-4 mt-2 mx-auto overflow-hidden">
@@ -194,7 +194,7 @@
                   <%= product.name %>
                 </p>
                 <p class="text-right mr-2 text-2xl lg:text-lg lg:font-semibold">
-                  <%= product.price%>
+                  <%= product.price%> kr
                 </p>
                 <p class="text-left ml-2 text-xl lg:text-base lg:font-semibold">
                   <%= product.brand%>

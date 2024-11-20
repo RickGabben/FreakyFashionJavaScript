@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Add products to FreakyFashion" />
     <title>Administration</title>
+    <script src="/public/javascript/newProduct.js" defer></script>
 
     <link rel="stylesheet" href="/styles/output.css" />
     <link
@@ -45,7 +46,14 @@
           <div
             class="w-full sm:w-2/3 md:max-w-lg p-8 bg-white rounded-lg shadow-md"
           >
-            <form action="#" method="POST" class="space-y-4">
+            <form
+              id="newProduct"
+              action="/api/products"
+              method="POST"
+              class="space-y-4"
+            >
+              <!-- Form fields here -->
+
               <!-- Input Field 1 -->
               <div>
                 <label
@@ -62,6 +70,22 @@
                 />
               </div>
 
+              <!-- New Input Field for Brand -->
+              <div>
+                <label
+                  for="brand"
+                  class="block text-lg font-medium text-gray-700"
+                  >Brand</label
+                >
+                <input
+                  type="text"
+                  id="brand"
+                  name="brand"
+                  class="mt-1 w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg"
+                  required
+                />
+              </div>
+
               <!-- Input Field 2 (Textarea for multiple rows) -->
               <div>
                 <label
@@ -71,7 +95,7 @@
                 >
                 <textarea
                   id="beskrvning"
-                  name="beskrvning"
+                  name="beskrivning"
                   rows="4"
                   class="mt-1 w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg"
                   required
@@ -124,63 +148,6 @@
               </div>
 
               <!-- Checkbox Options -->
-              <div>
-                <label class="block text-lg font-medium text-gray-700"
-                  >Kategorier:</label
-                >
-                <div class="mt-2 space-y-2">
-                  <div class="flex items-center">
-                    <input
-                      id="t-shirt"
-                      name="kategorier[]"
-                      value="t-shirt"
-                      type="checkbox"
-                      class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
-                    />
-                    <label
-                      for="t-shirt"
-                      class="ml-2 block text-lg text-gray-700"
-                      >T-Shirts</label
-                    >
-                  </div>
-                  <div class="flex items-center">
-                    <input
-                      id="sommar"
-                      name="kategorier[]"
-                      value="sommar"
-                      type="checkbox"
-                      class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
-                    />
-                    <label for="sommar" class="ml-2 block text-lg text-gray-700"
-                      >Sommar</label
-                    >
-                  </div>
-                  <div class="flex items-center">
-                    <input
-                      id="byxor"
-                      name="kategorier[]"
-                      value="byxor"
-                      type="checkbox"
-                      class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
-                    />
-                    <label for="byxor" class="ml-2 block text-lg text-gray-700"
-                      >Byxor</label
-                    >
-                  </div>
-                  <div class="flex items-center">
-                    <input
-                      id="skor"
-                      name="kategorier[]"
-                      value="skor"
-                      type="checkbox"
-                      class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
-                    />
-                    <label for="skor" class="ml-2 block text-lg text-gray-700"
-                      >Skor</label
-                    >
-                  </div>
-                </div>
-              </div>
 
               <!-- Submit Button -->
               <div>

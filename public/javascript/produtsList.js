@@ -13,7 +13,7 @@ document.getElementById("fetchProducts").addEventListener("click", () => {
         row.innerHTML = `
             <td class="border border-gray-300 px-4 py-2">${product.name}</td>
             <td class="border border-gray-300 px-4 py-2">${product.SKU}</td>
-            <td class="border border-gray-300 px-4 py-2">${product.price}</td>
+            <td class="border border-gray-300 px-4 py-2">${product.price} kr</td>
           `;
 
         // Append the row to the table

@@ -52,6 +52,28 @@ app.get("/api/products", (req, res) => {
   });
 });
 
+app.post("/api/products", (req, res) => {
+  let { namn, beskrivning, pris, SKU, brand } = req.body;
+
+  // Use a default image if none is provided
+  let image = req.body.image || "/images/Default.svg";
+
+  // Insert the product into the database
+  db.run(
+    `INSERT INTO products (name, brand, price, image, description, SKU)
+     VALUES (?, ?, ?, ?, ?, ?)`,
+    [namn, brand, pris, image, beskrivning, SKU],
+    function (err) {
+      if (err) {
+        console.error("Database insertion error:", err.message);
+        return res.status(500).json({ message: "Failed to add product." });
+      }
+      // Respond with success
+      res.render("admin/products");
+    }
+  );
+});
+
 // Catch 404 errors and forward them to the error handler
 app.use(function (req, res, next) {
   next(createError(404));
