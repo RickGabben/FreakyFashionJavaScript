@@ -9,6 +9,7 @@ var usersRouter = require("./routes/users");
 var productDetailsRoute = require("./routes/products");
 var newRoutes = require("./routes/new");
 var productRoutes = require("./routes/productList");
+var apiProductsRouter = require("./routes/api/products");
 
 var app = express();
 const sqlite3 = require("sqlite3").verbose();
@@ -39,40 +40,7 @@ app.use("/users", usersRouter);
 app.use("/products", productDetailsRoute);
 app.use("/admin/products/new", newRoutes);
 app.use("/admin/products", productRoutes);
-
-// API route to fetch products (name, price, SKU)
-app.get("/api/products", (req, res) => {
-  const query = "SELECT name, price, SKU FROM products"; // Only select name, price, and SKU
-
-  db.all(query, [], (err, rows) => {
-    if (err) {
-      return res.status(500).json({ error: err.message });
-    }
-    res.json(rows); // Send selected fields of products in JSON format
-  });
-});
-
-app.post("/api/products", (req, res) => {
-  let { namn, beskrivning, pris, SKU, brand } = req.body;
-
-  // Use a default image if none is provided
-  let image = req.body.image || "/images/Default.svg";
-
-  // Insert the product into the database
-  db.run(
-    `INSERT INTO products (name, brand, price, image, description, SKU)
-     VALUES (?, ?, ?, ?, ?, ?)`,
-    [namn, brand, pris, image, beskrivning, SKU],
-    function (err) {
-      if (err) {
-        console.error("Database insertion error:", err.message);
-        return res.status(500).json({ message: "Failed to add product." });
-      }
-      // Respond with success
-      res.render("admin/products");
-    }
-  );
-});
+app.use("/api/products", apiProductsRouter);
 
 // Catch 404 errors and forward them to the error handler
 app.use(function (req, res, next) {

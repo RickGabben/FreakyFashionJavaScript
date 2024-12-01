@@ -1,6 +1,7 @@
 document.getElementById("fetchProducts").addEventListener("click", () => {
   fetch("/api/products")
-    .then((response) => response.json()) // Parse JSON from the response
+    .then((response) => response.json())
+
     .then((products) => {
       // Clear any existing rows
       const tableBody = document.querySelector("#productsTable tbody");
